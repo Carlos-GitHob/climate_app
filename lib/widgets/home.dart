@@ -74,9 +74,6 @@ Widget buildClima(List<Climate> climas){
         title: Text('Nombre del pais:  ${climateData.location?.country ?? "Infomracion no disponible"}'),
         contentPadding: const EdgeInsets.all(8.0),
         dense: true,
-        leading: CircleAvatar(
-          //backgroundImage: NetworkImage(climateData.current?.condition?.icon
-          ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
