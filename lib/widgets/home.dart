@@ -13,12 +13,12 @@ class ClimateHomePage extends StatefulWidget{
 }
 
 class _ClimateHomePageState extends State<ClimateHomePage>{
-   late Future<Climate> climaFuture = getClima('');
+   late Future<Climate> climaFuture;
 
    @override
    void initState() {
     super.initState();
-    climaFuture = getClima('Honduras');
+    climaFuture = getClima('honduras');
   }
 
   Future<Climate> getClima(String country) async {
@@ -39,6 +39,7 @@ class _ClimateHomePageState extends State<ClimateHomePage>{
         actions: const [
           IconButton(onPressed: null, icon: Icon(Icons.search)),
           IconButton(onPressed: null, icon: Icon(Icons.more_vert)),
+          IconButton(onPressed: null, icon: Icon(Icons.refresh)),
         ],
       ),
       body: Center(
@@ -50,7 +51,7 @@ class _ClimateHomePageState extends State<ClimateHomePage>{
 
             }else if (snapshot.hasData){
               final climas = snapshot.data!;
-              return buildClima(climas);
+              return buildClima(climas as List<Climate>);
             }else{
               return const Text("No data avaidable");
             }
@@ -64,7 +65,7 @@ class _ClimateHomePageState extends State<ClimateHomePage>{
 
 }
 
-Widget buildClima(List<Climate> climas){
+Widget buildClima(List<Climate> climas) {
   return ListView.separated(
     itemCount: climas.length,
     itemBuilder: (BuildContext context, int index){

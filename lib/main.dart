@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:climate_app/widgets/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Text("Hola"), //ClimateHomePage(),
+      home: ClimateHomePage(),
     );
   }
 
